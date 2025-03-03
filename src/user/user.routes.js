@@ -3,8 +3,8 @@ import { addUser, modifyRole, deleteUser, updateUser } from "./user.controller.j
 import { addUserValidator, modifyRoleValidator, deleteUserValidator, updateUserAdminValidator } from "../middlewares/user-validators.js"
 import {uploadProfilePicture} from "../middlewares/multer-uploads.js"
 
-const router = Router()
 
+const router = Router()
 
 router.post("/addUser/", 
     uploadProfilePicture.single("profilePicture"),
@@ -14,7 +14,6 @@ router.post("/addUser/",
 router.patch("/modifyRole/:id",
     modifyRoleValidator,
     modifyRole
-
 )
 
 router.delete("/deleteUser/:id",

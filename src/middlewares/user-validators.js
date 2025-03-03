@@ -5,7 +5,6 @@ import { handleErrors } from "./handle-errors.js";
 import {validateJWT} from "./validar-jwt.js"
 import { hasRoles } from "./validate-rol.js";
 
-
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),
     body("username").notEmpty().withMessage("El username es requerido"),

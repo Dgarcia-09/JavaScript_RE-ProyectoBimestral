@@ -119,3 +119,16 @@ export const deleteUser = async (req, res) =>{
     }
 
 }
+
+export const editProfile = async (req, res) =>{
+    try{
+        
+
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: "Erro al editar el perfil",
+            err
+        })
+    }
+}
