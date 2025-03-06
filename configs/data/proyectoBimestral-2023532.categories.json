@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "67c62421d4eda77dc29efe02"
+  },
+  "name": "Sin categoria",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c91874515914e8de7ac4ea"
+  },
+  "name": "Lacteos",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c91888515914e8de7ac4ed"
+  },
+  "name": "Electronicos",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c918b2515914e8de7ac4f0"
+  },
+  "name": "Mascotas",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c918c1515914e8de7ac4f3"
+  },
+  "name": "Cuidado del hogar",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c918d4515914e8de7ac4f6"
+  },
+  "name": "Higiene personal",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c918e9515914e8de7ac4f9"
+  },
+  "name": "Carniceria",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c918f1515914e8de7ac4fc"
+  },
+  "name": "Frutas y verduras",
+  "status": false
+}]
