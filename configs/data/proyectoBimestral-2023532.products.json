@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "67c91f5d14774b3ab3978ebd"
+  },
+  "name": "Asistin",
+  "price": 12,
+  "descryption": "Limpia el piso",
+  "stock": 70,
+  "sold": 15,
+  "category": {
+    "$oid": "67c91874515914e8de7ac4ea"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-06T04:06:53.539Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-06T04:06:53.539Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c92344dfb2ed0c55494a21"
+  },
+  "name": "Trebolac",
+  "price": 15,
+  "descryption": "Milk with sugar",
+  "stock": 100,
+  "sold": 27,
+  "category": {
+    "$oid": "67c91874515914e8de7ac4ea"
+  },
+  "status": true,
+  "image": "OIP-1741235012084.jpg",
+  "createdAt": {
+    "$date": "2025-03-06T04:23:32.100Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-06T04:23:32.100Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c923b46a5a64699a6a96d4"
+  },
+  "name": "ChowChow",
+  "price": 30,
+  "descryption": "Comida para perro",
+  "stock": 170,
+  "sold": 60,
+  "category": {
+    "$oid": "67c918b2515914e8de7ac4f0"
+  },
+  "status": true,
+  "image": "OIP-1741235124251.jpg"
+}]

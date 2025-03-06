@@ -1,6 +1,7 @@
 `use strict`
 
 import Category from "./category.model.js"
+import Product from "../product/product.model.js"
 
 
 export const defaultCategory = async (req, res) =>{
@@ -66,38 +67,56 @@ export const updateCategory = async(req, res) => {
     }
 }
 
-export const deleteCategory = async (req, res) =>{
-    try{
-        const { id } = req.params
+export const deleteCategory = async (req, res) => {
+    try {
+        const { id } = req.params;
 
-        const category = await Category.findByIdAndUpdate(id, {status: false}, {new: true})
+        const category = await Category.findById(id);
+
 
         if (!category) {
             return res.status(404).json({
                 success: false,
-                message: "La categoria no fue encontrado"
+                message: "La categoría no fue encontrada"
             });
         }
+
+        await Category.findByIdAndUpdate(id, { status: false }, { new: true });
+
+  
+        const categoryDefault = await Category.findOne({ name: "Sin categoria" });
+
+        if (!categoryDefault) {
+            return res.status(400).json({
+                success: false,
+                message: "No existe la categoria 'Sin categoria'. No se pueden reasignar los productos."
+            });
+        }
+
+        await Product.updateMany({ category: id }, { category: categoryDefault._id });
+
+
         return res.status(200).json({
             success: true,
-            message: "Categoria eliminada",
-            user
-        })
-    }catch(err){
+            message: "Categoría eliminada correctamente"
+        });
+
+    } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Error al eliminar la categoria",
-            err
-        })
+            message: "Error al eliminar la categoría",
+            error: err.message 
+        });
     }
+};
 
-}
+
 
 
 export const getCategory = async (req, res) => {
     try{
-        const { limite = 5, desde = 0 } = req.query
-        const query = {}
+        const { limite = 10, desde = 0 } = req.query
+        const query = {status: true}
 
         const [total, categories ] = await Promise.all([
             Category.countDocuments(query),

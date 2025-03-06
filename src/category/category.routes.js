@@ -5,11 +5,17 @@ import { addCategory, updateCategory, deleteCategory, getCategory} from "./categ
 
 const router = Router()
 
-router.post("/addcategory", addCategoryValidator, addCategory)
+router.post("/addcategory", 
+    addCategoryValidator, 
+    addCategory)
 
-router.patch("/updateCategory/:id", updateCategoryValidator, updateCategory)
+router.patch("/updateCategory/:id", 
+    updateCategoryValidator, 
+    updateCategory)
 
-router.delete("/deleteCategory/:id", deleteCategoryValidator, deleteCategory)
+router.delete("/deleteCategory/:id", 
+    deleteCategoryValidator, 
+    deleteCategory)
 
 router.get("/", getCategory)
 
