@@ -23,6 +23,7 @@ export const addUser = async (req, res) =>{
 
 }
 
+
 export const updateUser = async (req, res) => {
     try {
         const { id } = req.params;
@@ -98,6 +99,7 @@ export const modifyRole = async (req, res) => {
     }
 }
 
+
 export const deleteUser = async (req, res) =>{
     try{
         const { id } = req.params
@@ -137,8 +139,6 @@ export const editProfile = async (req, res) =>{
         })
     }
 }
-
-// Edicion de perfil para usuario
 
 
 export const updatePassword = async (req, res) => {
