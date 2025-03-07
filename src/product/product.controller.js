@@ -35,22 +35,22 @@ export const createProduct = async (req, res) => {
 
 
 export const getProducts = async (req, res) => {
-    try{
-        const products = await Product.find().populate("category", "name")
+    try {
+        const products = await Product.find({ status: true }).populate("category", "name");
 
         res.status(200).json({
             success: true,
             products
-        })
+        });
 
-    }catch(err){
+    } catch (err) {
         res.status(500).json({
             success: false,
             message: "Error al obtener los productos",
             error: err.message
-        })
+        });
     }
-}
+};
 
 export const searchByName = async (req, res) => {
     try{
@@ -77,7 +77,7 @@ export const searchByName = async (req, res) => {
     }
 }
 
-export const searchByCategory = async (req, res) =>{
+export const productByCategory = async (req, res) =>{
     try{
         const {id} = req.params
 
@@ -109,25 +109,35 @@ export const searchByCategory = async (req, res) =>{
 
 
 export const updateProduct = async (req, res) => {
-    try{
-        const {id} = req.params
-        const data = req.body
+    try {
+        const { id } = req.params;
+        const data = req.body;
 
-        if(!product){
+        if (data.image || data.category) {
             return res.status(400).json({
+                success: false,
+                message: "No se permite actualizar la imagen o la categoria del producto"
+            })
+        }
+
+        const product = await Product.findById(id);
+
+        if (!product) {
+            return res.status(404).json({
                 success: false,
                 message: "El producto no existe"
             })
         }
 
-        const product = await Product.findByIdAndUpdate(id, data, {new: true})
+        const updatedProduct = await Product.findByIdAndUpdate(id, data, { new: true })
 
         res.status(200).json({
             success: true,
-            product
+            message: "Producto actualizado correctamente",
+            product: updatedProduct
         })
 
-    }catch(err){
+    } catch (err) {
         res.status(500).json({
             success: false,
             message: "Error al actualizar el producto",
@@ -135,6 +145,7 @@ export const updateProduct = async (req, res) => {
         })
     }
 }
+
 
 export const deleteProduct = async (req, res) =>{
     try{
@@ -172,14 +183,54 @@ export const soldOutProducts = async (req, res) => {
             success: true,
             count: soldOut.length,
             products: soldOut
-        });
+        })
     } catch (error) {
         return res.status(500).json({
             success: false,
             message: "Ha ocurrido un error al mostrar los productos agotados",
             error: error.message
-        });
+        })
     }
-};
+}
 
 
+export const mostSold = async (req, res) => {
+    try{
+        const mostSold = await Product.find().sort({sold: -1}).limit(10);
+
+        return res.status(200).json({
+            success: true,
+            message: "Se encontraron los productos mas vendidos exitosamente",
+            total: mostSold.length,
+            mostSold
+        })
+
+    }catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Error al obtener los productos mas vendidos",
+            error: error.message
+        })
+    }
+}
+
+
+export const lessSold = async (req, res) => {
+    try{
+        const lessSold = await Product.find().sort({sold: 1}).limit(10);
+
+        return res.status(200).json({
+            success: true,
+            message: "Se encontraron los productos menos vendidos exitosamente",
+            total: lessSold.length,
+            lessSold
+        })
+
+    }catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Error al obtener los productos menos vendidos",
+            error: error.message
+        })
+    }
+}
