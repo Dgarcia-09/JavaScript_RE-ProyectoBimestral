@@ -4,22 +4,19 @@ import Category from "./category.model.js"
 import Product from "../product/product.model.js"
 
 
-export const defaultCategory = async (req, res) =>{
-    try{
-        const category = await Category.findOne({name: "Sin categoria"})
-        if(!category){
+export const defaultCategory = async () => {
+    try {
+        const category = await Category.findOne({ name: "Sin categoria" });
+        if (!category) {
             await Category.create({
                 name: "Sin categoria",
-            })
+            });
         }
-
-    }catch(err){
-        return res.status(500).json({
-            success: false,
-            message: "Error al crear la categoria por default"
-        })
+    } catch (err) {
+        console.error("Error al crear la categoría por defecto:", err.message);
+        throw new Error("Error al crear la categoría por defecto");
     }
-}
+};
 
 
 export const addCategory = async (req, res) => {
