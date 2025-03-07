@@ -4,6 +4,7 @@ import { validarCampos } from "./validate-fields.js";
 import { handleErrors } from "./handle-errors.js";
 import {validateJWT} from "./validar-jwt.js"
 import { hasRoles } from "./validate-rol.js";
+import { deleteFileOnError } from "./delete-file-on-error.js";
 
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),
@@ -80,4 +81,28 @@ export const deleteUserValidator = [
     hasRoles("ADMIN_ROLE"),
     validarCampos,
     handleErrors
+]
+
+export const updatePasswordValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE", "CLIENT_ROLE"),
+    validarCampos,
+    handleErrors
+]
+
+export const updateProfilePictureValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE", "CLIENT_ROLE"),
+    validarCampos,
+    deleteFileOnError,
+    handleErrors
+]
+
+
+export const deleteProfileValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE", "CLIENT_ROLE"),
+    validarCampos,
+    handleErrors
+    
 ]
