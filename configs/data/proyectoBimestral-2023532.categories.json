@@ -1,19 +1,5 @@
 [{
   "_id": {
-    "$oid": "67c62421d4eda77dc29efe02"
-  },
-  "name": "Sin categoria",
-  "status": true
-},
-{
-  "_id": {
-    "$oid": "67c91874515914e8de7ac4ea"
-  },
-  "name": "Lacteos",
-  "status": true
-},
-{
-  "_id": {
     "$oid": "67c91888515914e8de7ac4ed"
   },
   "name": "Electronicos",
@@ -35,22 +21,22 @@
 },
 {
   "_id": {
-    "$oid": "67c918d4515914e8de7ac4f6"
-  },
-  "name": "Higiene personal",
-  "status": true
-},
-{
-  "_id": {
-    "$oid": "67c918e9515914e8de7ac4f9"
-  },
-  "name": "Carniceria",
-  "status": true
-},
-{
-  "_id": {
     "$oid": "67c918f1515914e8de7ac4fc"
   },
   "name": "Frutas y verduras",
   "status": false
+},
+{
+  "_id": {
+    "$oid": "67ca475f175794fc2ea86e9d"
+  },
+  "name": "Categoia eliminable",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67cb86b243d85576becd38a5"
+  },
+  "name": "Sin categoria",
+  "status": true
 }]

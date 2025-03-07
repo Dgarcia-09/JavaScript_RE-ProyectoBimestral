@@ -19,8 +19,8 @@
   "surname": "ochoa",
   "username": "guiller",
   "email": "guillermo@gmail.com",
-  "password": "$argon2id$v=19$m=65536,t=3,p=4$6oT9WMlfeZk86t/dUEqPJg$0NfPBJp6DZxen2xyrPjg5YjvN4yh9VmborMM1Ynn8Kc",
-  "profilePicture": "OIP-1741229346085.jpg",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$A6/WrB0xbpEvHLv4RdKF3g$SxvooK9Pnu62JvirixLNxaw5VEWZit9HoSlFEU8dcqA",
+  "profilePicture": "OIP-1741325967306.jpg",
   "role": "ADMIN_ROLE",
   "status": false
 },
@@ -100,7 +100,7 @@
   "password": "$argon2id$v=19$m=65536,t=3,p=4$fe3lE53QNlNNs++0lIzkog$ZsuLeNYE2O4AV43r7ZqsnbtG7beHKjLREwMAGLit0sI",
   "profilePicture": "OIP-1741230453337.jpg",
   "role": "CLIENT_ROLE",
-  "status": true
+  "status": false
 },
 {
   "_id": {
@@ -117,14 +117,27 @@
 },
 {
   "_id": {
-    "$oid": "67c913c4329506628db3dcab"
+    "$oid": "67cb6fa88adced5c17c97e8b"
   },
-  "name": "Alfred",
-  "surname": "Newman",
-  "username": "alfredNeww",
-  "email": "alfred@gmail.com",
-  "password": "$argon2id$v=19$m=65536,t=3,p=4$2uFnqZNPDMESt/o6T4C7lQ$a6+fzYjBHplU8EjB9uWvULvNshvwbUtVPAJa2LsS/J8",
+  "name": "Helen",
+  "surname": "Gomez",
+  "username": "HelenGGoz",
+  "email": "helen@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$Lhjihvl/QZjbw1K8tjRr9w$gA/OR+afZ9DBmeA75XGp2i1C1Bkee89oI7uL6eG9cOM",
   "profilePicture": null,
-  "role": "ADMIN_ROLE",
+  "role": "CLIENT_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67cb80d8fc526bf89d2fee30"
+  },
+  "name": "Alejandro",
+  "surname": "Sanchez",
+  "username": "Ale",
+  "email": "ale@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$KkWhv5KxJVundmbQWbAfmw$eM9QlO3HAB+V3kjjHtqufgSjM+IUke+6BUOgxF5i/dw",
+  "profilePicture": "OIP-1741390040756.jpg",
+  "role": "CLIENT_ROLE",
   "status": true
 }]

@@ -1,56 +1,165 @@
 [{
   "_id": {
-    "$oid": "67c91f5d14774b3ab3978ebd"
+    "$oid": "67ca45ff175794fc2ea86e86"
   },
-  "name": "Asistin",
-  "price": 12,
-  "descryption": "Limpia el piso",
-  "stock": 70,
-  "sold": 15,
+  "name": "Almohada",
+  "price": 80,
+  "descryption": "Almohada super suavecita",
+  "stock": 30,
+  "sold": 50,
   "category": {
-    "$oid": "67c91874515914e8de7ac4ea"
+    "$oid": "67c62421d4eda77dc29efe02"
   },
   "status": true,
-  "createdAt": {
-    "$date": "2025-03-06T04:06:53.539Z"
-  },
-  "updatedAt": {
-    "$date": "2025-03-06T04:06:53.539Z"
-  }
+  "image": null
 },
 {
   "_id": {
-    "$oid": "67c92344dfb2ed0c55494a21"
+    "$oid": "67ca461e175794fc2ea86e8b"
   },
-  "name": "Trebolac",
-  "price": 15,
-  "descryption": "Milk with sugar",
-  "stock": 100,
-  "sold": 27,
+  "name": "Lapicero",
+  "price": 2,
+  "descryption": "Lapicero tinta negra",
+  "stock": 44,
+  "sold": 12,
   "category": {
-    "$oid": "67c91874515914e8de7ac4ea"
+    "$oid": "67c62421d4eda77dc29efe02"
   },
   "status": true,
-  "image": "OIP-1741235012084.jpg",
-  "createdAt": {
-    "$date": "2025-03-06T04:23:32.100Z"
-  },
-  "updatedAt": {
-    "$date": "2025-03-06T04:23:32.100Z"
-  }
+  "image": null
 },
 {
   "_id": {
-    "$oid": "67c923b46a5a64699a6a96d4"
+    "$oid": "67ca465f175794fc2ea86e90"
   },
-  "name": "ChowChow",
+  "name": "Pantalon de vestir",
+  "price": 150,
+  "descryption": "Pantalon elegante para hombre color gris",
+  "stock": 10,
+  "sold": 0,
+  "category": {
+    "$oid": "67c62421d4eda77dc29efe02"
+  },
+  "status": true,
+  "image": null
+},
+{
+  "_id": {
+    "$oid": "67ca46dd175794fc2ea86e95"
+  },
+  "name": "Laptop lenovo thinkpad",
+  "price": 4000,
+  "descryption": "Laptop seminueva ",
+  "stock": 5,
+  "sold": 1,
+  "category": {
+    "$oid": "67c91888515914e8de7ac4ed"
+  },
+  "status": true,
+  "image": null
+},
+{
+  "_id": {
+    "$oid": "67ca4708175794fc2ea86e9a"
+  },
+  "name": "Celular samsung A55",
+  "price": 2999,
+  "descryption": "50 Gb memoria Ram color rosa",
+  "stock": 8,
+  "sold": 5,
+  "category": {
+    "$oid": "67c91888515914e8de7ac4ed"
+  },
+  "status": true,
+  "image": null
+},
+{
+  "_id": {
+    "$oid": "67ca47ab175794fc2ea86ea2"
+  },
+  "name": "Chow Chow",
   "price": 30,
-  "descryption": "Comida para perro",
-  "stock": 170,
-  "sold": 60,
+  "descryption": "Q.30.0 la libra de comida para perro sabor a mantequilla",
+  "stock": 0,
+  "sold": 45,
   "category": {
     "$oid": "67c918b2515914e8de7ac4f0"
   },
   "status": true,
-  "image": "OIP-1741235124251.jpg"
+  "image": null
+},
+{
+  "_id": {
+    "$oid": "67ca47df175794fc2ea86ea7"
+  },
+  "name": "Correa  para gato",
+  "price": 25,
+  "descryption": "Correa para gato superfuncional",
+  "stock": 27,
+  "sold": 2,
+  "category": {
+    "$oid": "67c918b2515914e8de7ac4f0"
+  },
+  "status": true,
+  "image": null
+},
+{
+  "_id": {
+    "$oid": "67ca481e175794fc2ea86eac"
+  },
+  "name": "Aspiradora",
+  "price": 250,
+  "descryption": "Mini aspiradora de TEMU",
+  "stock": 13,
+  "sold": 22,
+  "category": {
+    "$oid": "67c918c1515914e8de7ac4f3"
+  },
+  "status": true,
+  "image": null
+},
+{
+  "_id": {
+    "$oid": "67ca4851175794fc2ea86eb1"
+  },
+  "name": "Desinfectante",
+  "price": 40,
+  "descryption": "Desinfectante con olor a uva",
+  "stock": 100,
+  "sold": 90,
+  "category": {
+    "$oid": "67c918c1515914e8de7ac4f3"
+  },
+  "status": true,
+  "image": null
+},
+{
+  "_id": {
+    "$oid": "67ca489a175794fc2ea86eb6"
+  },
+  "name": "Manzana",
+  "price": 10000,
+  "descryption": "Manzana podrida",
+  "stock": 2,
+  "sold": 1,
+  "category": {
+    "$oid": "67c918f1515914e8de7ac4fc"
+  },
+  "status": true,
+  "image": null
+},
+{
+  "_id": {
+    "$oid": "67ca48b9175794fc2ea86ebb"
+  },
+  "name": "Medio Aguacate",
+  "price": 20,
+  "descryption": "Yo me comi la mitad",
+  "stock": 3,
+  "sold": 1,
+  "category": {
+    "$oid": "67c918f1515914e8de7ac4fc"
+  },
+  "status": true,
+  "image": null
 }]
