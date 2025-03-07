@@ -46,6 +46,7 @@ export const createCart = async (req, res) => {
     }
 }
 
+
 export const getCart = async (req, res) => {
     try{
         const carrito = await Cart.findOne({ user: req.usuario._id }).populate("products.product", "name price");
@@ -70,4 +71,3 @@ export const getCart = async (req, res) => {
     }
 }
 
- 
