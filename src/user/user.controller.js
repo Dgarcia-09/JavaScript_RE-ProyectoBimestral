@@ -1,8 +1,12 @@
 `use strict`
-import {join} from "path"
-import fs from "fs/promises"
+import { hash , verify} from "argon2";
 import User from "./user.model.js"
+import fs from "fs/promises"
+import {join, dirname} from "path"
+import { fileURLToPath } from "url";
 import { register } from "../auth/auth.controller.js"
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 
 export const addUser = async (req, res) =>{
@@ -133,3 +137,119 @@ export const editProfile = async (req, res) =>{
         })
     }
 }
+
+// Edicion de perfil para usuario
+
+
+export const updatePassword = async (req, res) => {
+    try{
+        const { id } = req.params
+        const { newPassword } = req.body
+
+        const user = await User.findById(id)
+
+        const matchOldAndNewPassword = await verify(user.password, newPassword)
+
+        if(matchOldAndNewPassword){
+            return res.status(400).json({
+                success: false,
+                message: "La nueva contraseña no puede ser igual a la anterior"
+            })
+        }
+
+        const encryptedPassword = await hash(newPassword)
+
+        await User.findByIdAndUpdate(id, {password: encryptedPassword}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Contraseña actualizada",
+        })
+
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: "Error al actualizar contraseña",
+            error: err.message
+        })
+    }
+}
+
+export const updateProfilePicture = async(req, res) =>{
+    try{
+        const {id} = req.params
+        let newProfilePicture = req.file ? req.file.filename : null
+
+        if(!newProfilePicture){
+            return res.status(500).json({
+                success: false,
+                message: "No se proporciono ningun archivo"
+            })
+        }
+
+        const user =  await User.findById(id)
+
+        if(user.newProfilePicture){
+            const oldProfilePicture = join(__dirname, "../../public/uploads/profile-pictures", user.profilePicture)
+            await fs.unlink(oldProfilePicture)
+
+        }
+
+        user.profilePicture = newProfilePicture
+
+        await user.save()
+
+        return res.status(200).json({
+            success: true,
+            message: "Foto actualizada",
+            user
+        })
+
+
+
+    }catch(err){
+        return res.status(500).json({
+            success:false,
+            message: "Error al actualizar la foto",
+            error:err.message
+        })
+
+    }
+}
+
+export const deleteProfile = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { password } = req.body;
+
+        const user = await User.findById(id);
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "Usuario no encontrado"
+            });
+        }
+
+        const passwordMatch = await verify(user.password, password);
+        if (!passwordMatch) {
+            return res.status(400).json({
+                success: false,
+                message: "La contraseña es incorrecta"
+            });
+        }
+
+        await User.findByIdAndDelete(id);
+
+        return res.status(200).json({
+            success: true,
+            message: "Usuario eliminado permanentemente"
+        });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al eliminar el usuario",
+            error: err.message
+        });
+    }
+};
+
