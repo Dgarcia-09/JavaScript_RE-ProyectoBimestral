@@ -73,3 +73,56 @@ http://127.0.0.1:3001/api-docs
 ```
 
 
+### Autenticación
+#### Registro
+**URL:** `/proyectoBimestral/v1/auth/register`  
+**Método:** `POST`  
+**Descripción:** Permite registrar un usuario con los siguientes campos:
+- `name`
+- `surname`
+- `username`
+- `email`
+- `password`
+- `profilePicture`
+- `role` (CLIENT_ROLE o ADMIN_ROLE)
+
+#### Login
+**URL:** `/proyectoBimestral/v1/auth/login`  
+**Método:** `POST`  
+**Descripción:** Permite iniciar sesión con los siguientes campos:
+- `username`
+- `password`
+
+### Usuarios
+#### Añadir Usuario
+**URL:** `/proyectoBimestral/v1/user/addUser`  
+**Método:** `POST`  
+**Descripción:** Permite crear un nuevo usuario (solo para ADMIN_ROLE). 
+
+#### Modificar Rol
+**URL:** `/proyectoBimestral/v1/user/modifyRole/:id`  
+**Método:** `PATCH`  
+**Descripción:** Permite modificar el rol de un usuario (solo para ADMIN_ROLE).
+
+#### Eliminar Usuario
+**URL:** `/proyectoBimestral/v1/user/deleteUser/:id`  
+**Método:** `DELETE`  
+**Descripción:** Permite eliminar un usuario (solo para ADMIN_ROLE).
+
+#### Actualizar Usuario
+**URL:** `/proyectoBimestral/v1/user/updateUser/:id`  
+**Método:** `PUT`  
+**Descripción:** Permite actualizar los datos de un usuario.
+
+#### Actualizar Contraseña
+**URL:** `/proyectoBimestral/v1/user/updatePassword/:id`  
+**Método:** `PATCH`  
+**Descripción:** Permite actualizar la contraseña de un usuario.
+
+#### Actualizar Foto de Perfil
+**URL:** `/proyectoBimestral/v1/user/updatePFP/:id`  
+**Método:** `PATCH`  
+**Descripción:** Permite actualizar la foto de perfil de un usuario.
+
+
+
