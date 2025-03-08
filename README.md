@@ -124,5 +124,123 @@ http://127.0.0.1:3001/api-docs
 **Método:** `PATCH`  
 **Descripción:** Permite actualizar la foto de perfil de un usuario.
 
+## Categorías
+
+### Agregar Categoría
+**POST** `/proyectoBimestral/v1/category/addCategory`
+```json
+{
+  "name": "Electrodomésticos"
+}
+```
+
+### Listar Categorías
+**GET** `/proyectoBimestral/v1/category/`
+
+### Actualizar Categoría
+**PATCH** `/proyectoBimestral/v1/category/updateCategory/:id`
+```json
+{
+  "name": "Higiene Personal"
+}
+```
+
+### Eliminar Categoría
+**DELETE** `/proyectoBimestral/v1/category/deleteCategory/:id`
+
+---
+
+## Productos
+
+### Agregar Producto
+**POST** `/proyectoBimestral/v1/product/addProduct`
+- FormData
+  - `name`: Nombre del producto
+  - `price`: Precio del producto
+  - `descryption`: Descripción del producto
+  - `stock`: Stock disponible
+  - `sold`: Productos vendidos
+  - `category`: ID de la categoría
+  - `image`: Archivo de imagen
+
+### Listar Productos
+**GET** `/proyectoBimestral/v1/product/`
+
+### Buscar Producto por Nombre
+**GET** `/proyectoBimestral/v1/product/searchProduct/:name`
+
+### Buscar Producto por Categoría
+**GET** `/proyectoBimestral/v1/product/searchProduct/category/:idCategory`
+
+### Actualizar Producto
+**PUT** `/proyectoBimestral/v1/product/updateProduct/:id`
+```json
+{
+  "name": "Nuevo Producto",
+  "price": "50.0",
+  "descryption": "Descripción actualizada",
+  "stock": "10",
+  "sold": "2"
+}
+```
+
+### Eliminar Producto
+**DELETE** `/proyectoBimestral/v1/product/deleteProduct/:id`
+
+### Productos Agotados
+**GET** `/proyectoBimestral/v1/product/soldOut`
+
+### Productos Más Vendidos
+**GET** `/proyectoBimestral/v1/product/mostSold`
+
+### Productos Menos Vendidos
+**GET** `/proyectoBimestral/v1/product/lessSold`
+
+---
+
+## Carrito de Compras
+
+### Agregar Producto al Carrito
+**POST** `/proyectoBimestral/v1/shoppingCar/addToCar`
+```json
+{
+  "product": "ID del producto",
+  "quantity": 2
+}
+```
+
+### Listar Productos del Carrito
+**GET** `/proyectoBimestral/v1/shoppingCar/`
+
+### Eliminar Producto del Carrito
+**DELETE** `/proyectoBimestral/v1/shoppingCar/deleteProduct/:id`
+
+### Vaciar Carrito
+**DELETE** `/proyectoBimestral/v1/shoppingCar/emptyCar`
+
+---
+
+## Usuarios
+
+### Obtener Perfil de Usuario
+**GET** `/proyectoBimestral/v1/user/profile`
+
+### Actualizar Usuario
+**PUT** `/proyectoBimestral/v1/user/updateUser`
+```json
+{
+  "name": "Nuevo Nombre",
+  "email": "nuevo@gmail.com"
+}
+```
+
+### Eliminar Usuario
+**DELETE** `/proyectoBimestral/v1/user/deleteUser`
+
+---
+
+## Notas
+- Todos los endpoints protegidos requieren autenticación con Bearer Token.
+- El token se debe enviar en los headers con la clave `Authorization`.
 
 
